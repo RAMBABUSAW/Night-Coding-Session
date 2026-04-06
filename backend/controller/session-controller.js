@@ -22,7 +22,7 @@ export const createSession = async (req, res) => {
 
     // Create questions and collect their IDs
     const questionDocs = await Promise.all(
-      questions.map(async (q) => {
+      (questions || []).map(async (q) => {
         const question = await Question.create({
           session: session._id,
           question: q.question,
@@ -114,4 +114,3 @@ export const getSessionById = async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 };
-

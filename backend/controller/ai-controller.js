@@ -14,7 +14,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 // @desc    Generate + SAVE interview questions for a session
 // @route   POST /api/ai/generate-questions
 // @access  Private
-export const generateInterviewQuestions = async (req, res) => {
+export const generateExplanation = async (req, res) => {
   console.log("hi");
   try {
     const { sessionId } = req.body; //! read sessionId, not role/experience
