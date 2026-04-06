@@ -147,7 +147,7 @@ import { API_PATHS } from "../utils/apiPaths";
 import axios from "../utils/axiosInstance";
 
 // ✅ ADD KIYA (NEW IMPORT)
-import axiosInstance from "../utils/axiosInstance";
+// import axiosInstance from "../utils/axiosInstance";
 
 const parseError = (err) => {
   console.log(err);
@@ -196,15 +196,15 @@ const InterviewPrep = () => {
   };
 
   // ✅ ADD KIYA (NEW FUNCTION)
-  const handleExplain = async (question) => {
-    try {
-      const res = await axiosInstance.post(API_PATHS.AI.EXPLAIN, { question });
+  // const handleExplain = async (question) => {
+  //   try {
+  //     const res = await axiosInstance.post(API_PATHS.AI.EXPLAIN, { question });
 
-      toast.success(res.data.data.explanation || "Explanation generated!");
-    } catch (err) {
-      toast.error(parseError(err));
-    }
-  };
+  //     toast.success(res.data.data.explanation || "Explanation generated!");
+  //   } catch (err) {
+  //     toast.error(parseError(err));
+  //   }
+  // };
 
   useEffect(() => {
     fetchQuestions();
@@ -268,10 +268,10 @@ const InterviewPrep = () => {
                   transition={{ duration: 0.2, delay: i * 0.05 }}
                 >
                   {/* ❌ OLD */}
-                  {/* <QAItem item={q} /> */}
+                  <QAItem item={q} />
 
                   {/* ✅ ADD KIYA (WRAP + BUTTON) */}
-                  <div className="bg-white p-4 rounded-xl shadow-sm">
+                  {/* <div className="bg-white p-4 rounded-xl shadow-sm">
                     <QAItem item={q} />
 
                     <button
@@ -280,7 +280,7 @@ const InterviewPrep = () => {
                     >
                       Explain
                     </button>
-                  </div>
+                  </div> */}
                 </motion.div>
               ))}
             </div>
